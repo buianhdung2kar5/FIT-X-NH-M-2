@@ -1,0 +1,22 @@
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        justify-content: center;
+    }
+
+    table {
+        border: 1px solid black;
+    }
+
+    .table .tbody .tr {
+        border-bottom: 1px solid black;
+    }

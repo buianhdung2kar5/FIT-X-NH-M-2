@@ -1,0 +1,146 @@
+body {
+    background-color: #9D8667;
+}
+
+.container {
+    max-width: 848px;
+    max-height: 100vh;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #925F3B;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+/* BLOCK ONE */
+.inner-profile .block-one {
+    display: flex;
+    width: 100%;
+    height: 218px;
+}
+
+h2 {
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.inner-profile .inner-infor {
+    width: 100%;
+    height: 100%;
+}
+
+.inner-profile .inner-infor ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.inner-profile .inner-infor ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-weight: bolder;
+}
+
+.inner-profile .inner-infor ul li i {
+    width: 14px;
+    text-align: center;
+    flex-shrink: 1;
+}
+
+.inner-profile .inner-infor ul li span {
+    flex: 1;
+}
+
+
+.container .inner-profile .inner-image {
+    width: 40%;
+    padding: 10px;
+    border-right: 2px solid black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+img {
+    width: 25vh;
+    border-radius: 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+hr {
+    border: none;
+    border: 1px solid black;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*END BLOCK ONE */
+/* BLOCK TWO */
+.block-two .container-2 {
+    display: flex;
+    width: 100%;
+}
+
+.block-two .experience {
+    width: 40%;
+    height: 164px;
+    border-right: 2px solid black;
+}
+
+.block-two h2 {
+    margin: 0px;
+    padding-top: 10px;
+}
+
+.block-two .experience .laptrinhweb {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+}
+
+.laptrinh {
+    min-width: 70px;
+}
+
+progress {
+    width: 100px;
+    height: 15px;
+    appearance: none;
+    flex: 1;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-value {
+    background-color: #00bcd4;
+    border-radius: 10px;
+}
+
+.block-two .container-2 .hobbies {
+    width: 60%;
+    height: 164px;
+}
+
+.block-two .container-2 .hobbies p {
+    text-align: center;
+}
+
+/* End BLOCK-TWO */
+
+/* BLOCK-THREE */
+.block-three {
+    width: 100%;
+    max-height: 40%;
+}
