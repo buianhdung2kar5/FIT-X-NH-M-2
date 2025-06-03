@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Dang Tan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .sidebar {
+      flex: 1;
+      min-width: 250px;
+      background: #2e8b57;
+      color: white;
+      padding: 20px;
+      border-radius: 10px 0 0 10px;
+    }
+    .content {
+      flex: 2;
+      padding: 20px;
+    }
+    img.avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 15px;
+      border: 3px solid white;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .back-btn {
+      background: #2e8b57;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 15px;
+    }
+    hr {
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    progress {
+      width: 100%;
+      height: 10px;
+    }
+    section {
+      margin-bottom: 20px;
+    }
+    @media (max-width: 700px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        border-radius: 10px 10px 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="back-btn" onclick="window.location.href='home.html'">← Trang chủ</button>
+  <div class="container">
+    <div class="sidebar">
+      <img class="avatar" src="https://i.pravatar.cc/300" alt="Le Dang Tan">
+      <h2>Le Dang Tan</h2>
+      <hr>
+      <p><strong>Email:</strong> 11236199@st.neu.edu.vn</p>
+      <p><strong>Mã sinh viên:</strong> 11236199</p>
+      <hr>
+      <h3>Kỹ năng lập trình</h3>
+      <p>HTML</p>
+      <progress value="90" max="100"></progress>
+      <p>C++</p>
+      <progress value="60" max="100"></progress>
+      <p>Git</p>
+      <progress value="75" max="100"></progress>
+      <p>Java</p>
+      <progress value="50" max="100"></progress>
+    </div>
+    <div class="content">
+      <section>
+        <h3>Trình độ học vấn</h3>
+        <h4>Cử nhân ngành Công nghệ thông tin</h4>
+        <p>Trường Công nghệ, Đại học Kinh tế Quốc dân</p>
+      </section>
+      <section>
+        <h3>Sở thích</h3>
+        <ul>
+          <li>Bóng đá</li>
+          <li>Chơi game</li>
+          <li>Chạy bộ</li>
+          <li>Bóng bàn</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Dự án đã thực hiện</h3>
+        <h4>Trang web nghiên cứu khoa học Leafy</h4>
+        <p>Developer, Tester</p>
+        <a href="https://github.com/Hina845/Leafy_for_researcher_v2" target="_blank">Xem trên GitHub</a>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
