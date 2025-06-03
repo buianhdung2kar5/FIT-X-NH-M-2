@@ -1,120 +1,127 @@
+/* === GLOBAL === */
 body {
     background-color: #9D8667;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .container {
     max-width: 848px;
-    max-height: 100vh;
     margin: 0 auto;
     width: 100%;
     background-color: #925F3B;
     border-radius: 5px;
     border: 2px solid black;
+    overflow: hidden;
 }
 
-/* BLOCK ONE */
+/* === BLOCK ONE === */
 .inner-profile .block-one {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
-    height: 218px;
+    background-color: #925F3B;
 }
 
-h2 {
+.inner-image {
+    width: 100%;
+    padding: 10px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+.inner-image img {
+    width: 25vh;
+    max-width: 200px;
+    border-radius: 50%;
+    animation: spin_img 5s infinite linear;
+}
+
+.inner-infor {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.inner-infor h2 {
     text-align: center;
     color: white;
+    /* Giữ Hello DunNee màu trắng */
+    margin-top: 0;
 }
 
-.inner-profile .inner-infor {
-    width: 100%;
-    height: 100%;
-}
-
-.inner-profile .inner-infor ul {
+.inner-infor ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 10px 0 0 0;
 }
 
-.inner-profile .inner-infor ul li {
+.inner-infor ul li {
     display: flex;
     align-items: flex-start;
     gap: 10px;
     margin-bottom: 8px;
     font-weight: bolder;
+    color: black;
+    /* thông tin màu đen */
 }
 
-.inner-profile .inner-infor ul li i {
-    width: 14px;
+.inner-infor ul li i {
+    width: 20px;
     text-align: center;
-    flex-shrink: 1;
+    flex-shrink: 0;
 }
 
-.inner-profile .inner-infor ul li span {
+.inner-infor ul li span {
     flex: 1;
 }
 
-
-.container .inner-profile .inner-image {
-    width: 40%;
-    padding: 10px;
-    border-right: 2px solid black;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-img {
-    width: 25vh;
-    border-radius: 50%;
-    animation: spin_img 5s infinite linear;
-}
-
-ul {
-    list-style-type: none;
-}
-
 hr {
-    border: none;
-    border: 1px solid black;
-    padding: 0px;
-    margin: 0px;
+    margin: 0;
 }
 
-@keyframes spin_img {
-    from {
-        rotate: 0;
-    }
-
-    to {
-        rotate: 360deg;
-    }
-}
-
-/*END BLOCK ONE */
-/* BLOCK TWO */
-.block-two .container-2 {
-    display: flex;
+/* === BLOCK TWO === */
+.block-two {
     width: 100%;
 }
 
-.block-two .experience {
-    width: 40%;
-    height: 164px;
-    border-right: 2px solid black;
+.block-two>h2 {
+    text-align: center;
+    color: white;
+    /* ABOUT ME trắng */
+    margin: 10px 0;
 }
 
-.block-two h2 {
-    margin: 0px;
-    padding-top: 10px;
+.container-2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.block-two .experience .laptrinhweb {
+.experience,
+.hobbies {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    color: black;
+    /* nội dung đen */
+}
+
+.experience-title h2,
+.hobbies h2 {
+    color: white;
+    /* Kỹ năng, Sở thích màu trắng */
+    text-align: center;
+}
+
+.laptrinhweb {
     margin: 10px 0;
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 300px;
 }
 
 .laptrinh {
@@ -122,7 +129,7 @@ hr {
 }
 
 progress {
-    width: 100px;
+    width: 100%;
     height: 15px;
     appearance: none;
     flex: 1;
@@ -131,7 +138,6 @@ progress {
 progress::-webkit-progress-bar {
     background-color: #eee;
     border-radius: 10px;
-    overflow: hidden;
 }
 
 progress::-webkit-progress-value {
@@ -139,49 +145,365 @@ progress::-webkit-progress-value {
     border-radius: 10px;
 }
 
-.block-two .container-2 .hobbies {
-    width: 60%;
-    height: 164px;
+.hobbies p {
+    margin: 0;
+    text-align: justify;
 }
 
-.block-two .container-2 .hobbies p {
-    text-align: center;
-}
-
-/* End BLOCK-TWO */
-
-/* BLOCK-THREE */
+/* === BLOCK THREE === */
 .block-three {
     width: 100%;
-    max-height: 40%;
+    padding: 10px;
 }
 
-.block-three .study li {
+.block-three h2 {
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    /* Học vấn trắng */
+}
+
+.study {
+    padding: 0;
+    list-style: none;
+}
+
+.study li {
     display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    gap: 10px;
+    color: black;
+    /* nội dung đen */
 }
 
-.block-three .study li i {
+.study li i {
     width: 20px;
-    flex-shrink: 1;
+    flex-shrink: 0;
     text-align: center;
 }
 
-.block-three .study li p {
-    flex: 1;
+.study li p {
     margin: 0;
+    flex: 1;
 }
 
-/* End BLOCK-THREE */
-
+/* === RETURN BUTTON === */
 .return {
-    width: 120px;
+    width: fit-content;
+    padding: 8px 16px;
     background-color: #eee;
     border-radius: 10px;
-    position: relative;
-    margin: 0;
-    padding: 0;
-    left: 700px;
     text-decoration: none;
     color: black;
-    bottom: 10px;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+}
+
+/* === HR === */
+hr {
+    border: none;
+    border-top: 1px solid black;
+}
+
+/* === ANIMATION === */
+@keyframes spin_img {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+/* === MEDIA QUERIES === */
+@media screen and (min-width: 768px) {
+    .inner-profile .block-one {
+        flex-wrap: nowrap;
+    }
+
+    .inner-image {
+        width: 40%;
+        border-right: 2px solid black;
+        border-bottom: none;
+    }
+
+    .inner-infor {
+        width: 60%;
+    }
+
+    .container-2 {
+        flex-direction: row;
+    }
+
+    .experience {
+        width: 40%;
+        border-right: 2px solid black;
+        border-bottom: none;
+    }
+
+    .hobbies {
+        width: 60%;
+        padding-left: 20px;
+    }
+
+    .return {
+        margin-right: 20px;
+        margin-left: auto;
+    }
+}
+
+/* === GLOBAL === */
+body {
+    background-color: #9D8667;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 848px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #925F3B;
+    border-radius: 5px;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+/* === BLOCK ONE === */
+.inner-profile .block-one {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: #925F3B;
+}
+
+.inner-image {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+.inner-image img {
+    width: 25vh;
+    max-width: 200px;
+    border-radius: 50%;
+    animation: spin_img 5s infinite linear;
+}
+
+.inner-infor {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.inner-infor h2 {
+    text-align: center;
+    color: white;
+    /* Giữ Hello DunNee màu trắng */
+    margin-top: 0;
+}
+
+.inner-infor ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.inner-infor ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-weight: bolder;
+    color: black;
+    /* thông tin màu đen */
+}
+
+.inner-infor ul li i {
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.inner-infor ul li span {
+    flex: 1;
+}
+
+/* === BLOCK TWO === */
+.block-two {
+    width: 100%;
+}
+
+.block-two>h2 {
+    text-align: center;
+    color: white;
+    /* ABOUT ME trắng */
+    margin: 10px 0;
+}
+
+.container-2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.experience,
+.hobbies {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    color: black;
+    /* nội dung đen */
+}
+
+.experience-title h2,
+.hobbies h2 {
+    color: white;
+    /* Kỹ năng, Sở thích màu trắng */
+    text-align: center;
+}
+
+.laptrinhweb {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.laptrinh {
+    min-width: 80px;
+}
+
+progress {
+    width: 100%;
+    height: 15px;
+    appearance: none;
+    flex: 1;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #00bcd4;
+    border-radius: 10px;
+}
+
+.hobbies p {
+    margin: 0;
+    text-align: justify;
+}
+
+/* === BLOCK THREE === */
+.block-three {
+    width: 100%;
+    padding: 10px;
+}
+
+.block-three h2 {
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    /* Học vấn trắng */
+}
+
+.study {
+    padding: 0;
+    list-style: none;
+}
+
+.study li {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    gap: 10px;
+    color: black;
+    /* nội dung đen */
+}
+
+.study li i {
+    width: 20px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.study li p {
+    margin: 0;
+    flex: 1;
+}
+
+/* === RETURN BUTTON === */
+.return {
+    width: fit-content;
+    padding: 8px 16px;
+    background-color: #eee;
+    border-radius: 10px;
+    text-decoration: none;
+    color: black;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+}
+
+/* === HR === */
+hr {
+    border: none;
+    border-top: 1px solid black;
+}
+
+/* === ANIMATION === */
+@keyframes spin_img {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+/* === MEDIA QUERIES === */
+@media screen and (min-width: 768px) {
+    .inner-profile .block-one {
+        flex-wrap: nowrap;
+    }
+
+    .inner-image {
+        width: 30%;
+        border-right: 2px solid black;
+        border-bottom: none;
+    }
+
+    .inner-infor {
+        width: 60%;
+    }
+
+    .container-2 {
+        flex-direction: row;
+    }
+
+    .experience {
+        width: 40%;
+        border-right: 2px solid black;
+        border-bottom: none;
+    }
+
+    .hobbies {
+        width: 60%;
+        padding-left: 20px;
+    }
+
+    .return {
+        margin-right: 20px;
+        margin-left: auto;
+    }
 }

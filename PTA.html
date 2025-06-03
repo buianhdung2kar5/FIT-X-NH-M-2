@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phạm Tuấn Anh</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #block1,
+        #block2,
+        #contact {
+            scroll-margin-top: 90px;
+        }
+
+        #block3 {
+            scroll-margin-top: 70px;
+        }
+
+
+        :root {
+            --mint: #B6FCD5;
+            --slate: #2E2E2E;
+            --raspberry: #FF006E;
+            --lemon: #FDFD96;
+            --skyblue: #A0E7E5;
+            --peach: #FFB085;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'VT323', monospace;
+        }
+
+        body {
+            background-color: var(--mint);
+            color: var(--slate);
+            line-height: 1.6;
+            background-image:
+                linear-gradient(rgba(182, 252, 213, 0.8), rgba(182, 252, 213, 0.8)),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><rect width="1" height="1" x="0" y="0" fill="%23A0E7E5" opacity="0.3"/></svg>');
+            padding-bottom: 40px;
+            font-size: 20px;
+        }
+
+        /* Pixel Navigation */
+        nav {
+            background-color: var(--slate);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 0 var(--peach);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-container a {
+            color: var(--mint);
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 8px 15px;
+            font-size: 24px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container a:hover {
+            color: var(--lemon);
+        }
+
+        .nav-container a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--raspberry);
+            transition: width 0.3s ease;
+        }
+
+        .nav-container a:hover::after {
+            width: 100%;
+        }
+
+        /* Pixel Header */
+        .header {
+            background: linear-gradient(135deg, var(--skyblue) 0%, var(--mint) 100%);
+            padding: 50px 20px 40px;
+            text-align: center;
+            position: relative;
+            margin: 20px;
+            border: 4px solid var(--slate);
+            box-shadow: 8px 8px 0 var(--peach);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: -8px;
+            bottom: -8px;
+            border: 4px solid var(--peach);
+            z-index: -1;
+            border-radius: 16px;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(255, 253, 150, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(160, 231, 229, 0.1) 0%, transparent 20%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avt {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 8px solid var(--peach);
+            box-shadow:
+                0 0 0 4px var(--slate),
+                0 0 0 12px var(--lemon),
+                0 0 20px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            margin-bottom: 25px;
+            image-rendering: pixelated;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0 var(--peach);
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background-color: var(--raspberry);
+        }
+
+        .header h3 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: var(--raspberry);
+            text-shadow: 1px 1px 0 var(--slate);
+            background-color: rgba(255, 255, 255, 0.7);
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 30px;
+            border: 3px solid var(--slate);
+            box-shadow: 4px 4px 0 var(--lemon);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .info-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 12px;
+            border: 3px solid var(--slate);
+            text-align: left;
+            position: relative;
+            box-shadow: 4px 4px 0 var(--skyblue);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .info-card h4 {
+            font-size: 22px;
+            color: var(--raspberry);
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--slate);
+            padding-bottom: 5px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card li {
+            margin: 8px 0;
+            font-size: 20px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .info-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--raspberry);
+            font-size: 22px;
+        }
+
+        /* Content Blocks */
+        .content-block {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 40px 20px;
+            gap: 30px;
+        }
+
+        .section {
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border: 4px solid var(--slate);
+            box-shadow: 8px 8px 0 var(--lemon);
+            position: relative;
+            border-radius: 12px;
+        }
+
+        .section::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: -8px;
+            bottom: -8px;
+            border: 4px solid var(--skyblue);
+            z-index: -1;
+            border-radius: 12px;
+        }
+
+        .section h2 {
+            font-size: 42px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 4px solid var(--raspberry);
+            display: inline-block;
+            text-shadow: 2px 2px 0 var(--skyblue);
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .section ul {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        .section li {
+            margin-bottom: 10px;
+            font-size: 22px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .section li::before {
+            content: '■';
+            color: var(--raspberry);
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+
+        .section strong {
+            color: var(--raspberry);
+        }
+
+        /* Pixel Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .skill {
+            background-color: var(--lemon);
+            color: var(--slate);
+            padding: 8px 15px;
+            border: 3px solid var(--slate);
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 4px 4px 0 var(--peach);
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            background-color: var(--peach);
+        }
+
+        /* Pixel Footer */
+        footer {
+            background-color: var(--slate);
+            color: var(--mint);
+            padding: 40px 20px;
+            margin: 0 20px;
+            border: 4px solid var(--lemon);
+            box-shadow: 8px 8px 0 var(--raspberry);
+            position: relative;
+            border-radius: 12px;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: -8px;
+            bottom: -8px;
+            border: 4px solid var(--skyblue);
+            z-index: -1;
+            border-radius: 12px;
+        }
+
+        .contact h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            color: var(--peach);
+            text-shadow: 2px 2px 0 var(--raspberry);
+        }
+
+        .contact h3 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            color: var(--skyblue);
+        }
+
+        .contact ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .contact li {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .contact a {
+            color: var(--skyblue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .contact a::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: var(--peach);
+        }
+
+        .contact a:hover {
+            color: var(--lemon);
+            transform: translateX(5px);
+        }
+
+        footer p {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: var(--peach);
+        }
+
+        /* Pixel AI Block */
+        .ai-block {
+            background-color: var(--skyblue);
+            padding: 30px;
+            margin: 40px 20px;
+            border: 4px solid var(--slate);
+            box-shadow: 8px 8px 0 var(--lemon);
+            position: relative;
+            border-radius: 12px;
+        }
+
+        .ai-block::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            right: -8px;
+            bottom: -8px;
+            border: 4px solid var(--raspberry);
+            z-index: -1;
+            border-radius: 12px;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .chat-messages {
+            height: 400px;
+            overflow-y: auto;
+            border: 3px solid var(--slate);
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 22px;
+            max-width: 80%;
+        }
+
+        .chat-message.user {
+            background-color: var(--mint);
+            margin-left: auto;
+            border: 2px solid var(--slate);
+        }
+
+        .chat-message.bot {
+            background-color: var(--peach);
+            margin-right: auto;
+            border: 2px solid var(--slate);
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            padding: 10px;
+            font-size: 22px;
+            border: 3px solid var(--slate);
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 6px;
+        }
+
+        .chat-input-area button {
+            padding: 10px 20px;
+            background-color: var(--raspberry);
+            color: white;
+            border: 3px solid var(--slate);
+            font-size: 22px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-radius: 6px;
+        }
+
+        .chat-input-area button:hover {
+            background-color: var(--lemon);
+            color: var(--slate);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content-block {
+                flex-direction: column;
+            }
+
+            .nav-container {
+                display: none;
+                /* Ẩn thanh nav trên màn hình nhỏ */
+            }
+
+            .header {
+                padding: 70px 15px 30px;
+            }
+
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .header h3 {
+                font-size: 26px;
+            }
+
+            .section {
+                min-width: auto;
+            }
+
+            .section h2 {
+                font-size: 36px;
+            }
+
+            .section p,
+            .section li {
+                font-size: 18px;
+            }
+
+            .skill {
+                font-size: 16px;
+            }
+
+            .contact h2 {
+                font-size: 36px;
+            }
+
+            .contact h3 {
+                font-size: 22px;
+            }
+
+            .contact li,
+            .contact a {
+                font-size: 18px;
+            }
+
+            .chat-message {
+                font-size: 18px;
+            }
+
+            .chat-input-area input,
+            .chat-input-area button {
+                font-size: 18px;
+            }
+
+            .avt {
+                width: 160px;
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                margin: 10px;
+                padding: 60px 15px 20px;
+            }
+
+            .content-block,
+            .ai-block {
+                margin: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .header h3 {
+                font-size: 22px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .section h2 {
+                font-size: 32px;
+            }
+
+            .ai-block {
+                padding: 20px;
+            }
+
+            .chat-messages {
+                height: 300px;
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Thanh nav -->
+    <nav>
+        <div class="nav-container">
+            <a href="home.html">Trang Chủ</a>
+            <a href="#block1">Giới thiệu</a>
+            <a href="#block2">Dự án & Học vấn</a>
+            <a href="#block3">ChatBox</a>
+            <a href="#contact">Liên hệ</a>
+        </div>
+    </nav>
+
+
+    <!--  Header -->
+    <div class="header">
+        <div class="header-content">
+            <img class="avt"
+                src="https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/495542080_1734564820778575_5454879830011461917_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=nDUOZ3qucCcQ7kNvwELxY52&_nc_oc=AdlAFxrDnQkXebtO0Guzl7-w-RuxQzyFrR-iHA_qNmZ4o0OfK4bJWn407Qh4ynRM8qhXY3GeC2CF17ZqumtuPp-g&_nc_zt=23&_nc_ht=scontent.fhan17-1.fna&_nc_gid=ZUvy-NoSlmUUccv4VXj9XQ&oh=00_AfKv1XiiKIkSIMNOJHGtks75FJ0nVD45w3b-r8PihskVaw&oe=68424CB9"
+                alt="Pham Tuan Anh">
+
+            <h1>Phạm Tuấn Anh</h1>
+            <h3>Future Software Engineer</h3>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Thông tin cá nhân</h4>
+                    <ul>
+                        <li>Chuyên ngành: Công nghệ Thông tin</li>
+                        <li>Trường: ĐH Công nghệ - ĐH KTQD</li>
+                        <li>Niên khóa: K65</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Chi tiết</h4>
+                    <ul>
+                        <li>Sinh nhật: 19/09/2005</li>
+                        <li>Giới tính: Nam</li>
+                        <li>Đam mê: Lập trình & Công nghệ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- giới thiệu và kĩ năng -->
+    <div class="content-block" id="block1">
+        <div class="section intro">
+            <h2>Giới thiệu</h2>
+            <p>Xin chào mọi người!</p>
+            <p>
+                Tớ là <strong>Phạm Tuấn Anh</strong>, hiện đang là sinh viên lớp <strong>Công nghệ Thông tin
+                    65A</strong>.
+                Tớ có khả năng tự học và luôn thích mày mò tìm hiểu những công nghệ mới. Tớ mong muốn trong tương lai
+                có thể trở thành một <strong>lập trình viên Fullstack</strong>.
+            </p>
+            <p>Tớ tạo ra trang web này với ba mục đích chính:</p>
+            <ul>
+                <li>Giới thiệu bản thân một cách rõ ràng và trực quan.</li>
+                <li>Sử dụng làm CV online, hỗ trợ cho việc xin việc sau này.</li>
+                <li>Đây cũng là một phần trong bài tập về nhà của tớ.</li>
+            </ul>
+            <p>
+                Nếu mọi người có thắc mắc hoặc gặp vấn đề gì khi sử dụng trang web, cứ liên hệ với tớ qua thông tin ở
+                phía dưới nhé!
+            </p>
+        </div>
+
+        <div class="section exp">
+            <h2>Kỹ năng</h2>
+            <p>Tớ có một số kỹ năng lập trình cơ bản và đang không ngừng học hỏi, rèn luyện thêm mỗi ngày:</p>
+
+            <div class="skills-container">
+                <div class="skill">C</div>
+                <div class="skill">C++</div>
+                <div class="skill">Python</div>
+                <div class="skill">C#</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">HTML</div>
+                <div class="skill">CSS</div>
+                <div class="skill">SQL</div>
+                <div class="skill">Git</div>
+                <div class="skill">GitHub</div>
+                <div class="skill">Flask</div>
+                <div class="skill">Windows Forms</div>
+                <div class="skill">ReactJS</div>
+                <div class="skill">Node.js</div>
+                <div class="skill">Supabase</div>
+            </div>
+
+            <p>Tớ còn biết sử dụng một số công cụ và dịch vụ như <strong>Supabase API</strong> để xây dựng backend đơn
+                giản.</p>
+
+            <p>Về ngoại ngữ, trình độ tiếng Anh của tớ đang ở mức trung bình-khá. Còn khả năng tư duy logic thì tớ khá
+                tự tin :D</p>
+
+            <p>Tớ luôn sẵn sàng học hỏi, thích thử nghiệm cái mới và cải thiện kỹ năng của bản thân mỗi ngày.</p>
+        </div>
+    </div>
+
+    <!-- dự án và học vấn -->
+    <div class="content-block" id="block2">
+        <div class="section proj">
+            <h2>Dự án</h2>
+            <p>Tớ đã tham gia một số dự án nhỏ trong quá trình học tập và thực hành:</p>
+            <ul>
+                <li>
+                    <strong>Ứng dụng quản lý phòng khách sạn:</strong>
+                    Phần mềm quản lý thông tin sinh viên, được xây dựng bằng C# và Windows Forms.
+                </li>
+                <li>
+                    <strong>Trang web cá nhân:</strong>
+                    Chính là trang web này, được phát triển bằng HTML, CSS và JavaScript.
+                </li>
+                <li>
+                    <strong>Trang web Nghiên cứu khoa học (Flask):</strong>
+                    Bài tập lớn môn Lập trình Web, sử dụng HTML, CSS, JavaScript, Flask (Python) và Supabase API.
+                </li>
+                <li>
+                    <strong>Trang web Nghiên cứu khoa học (Node.js):</strong>
+                    Dù cùng chủ đề nhưng là một bài tập lớn khác trong môn Thiết kế Web. Dự án này sử dụng HTML, CSS,
+                    JavaScript, Node.js và MongoDB.
+                </li>
+            </ul>
+        </div>
+
+        <div class="section edu">
+            <h2>Học vấn</h2>
+            <p>Tớ hiện đang theo học tại <strong>trường Đại học Công nghệ - Đại học Kinh tế Quốc dân</strong>, chuyên
+                ngành <strong>Công nghệ Thông tin</strong>.</p>
+            <p>Tớ đã hoàn thành các môn học nền tảng như: lập trình cơ bản, cấu trúc dữ liệu và giải thuật, cơ sở dữ
+                liệu, và phát triển web.</p>
+            <p>Tớ luôn cố gắng cập nhật và học hỏi thêm các công nghệ mới để nâng cao kỹ năng của mình.</p>
+
+            <div
+                style="margin-top: 25px; padding: 15px; background-color: var(--lemon); border: 3px solid var(--slate); border-radius: 8px;">
+                <h3 style="color: var(--raspberry); margin-bottom: 10px; font-size: 28px;">Mục tiêu tương lai</h3>
+                <p>Trở thành Fullstack Developer chuyên nghiệp, thành thạo cả frontend và backend.</p>
+                <p>Phát triển các sản phẩm công nghệ có ích cho cộng đồng.</p>
+                <p>Tiếp tục học hỏi và làm chủ các công nghệ mới như AI và Machine Learning.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- tích hợp ai trả lời câu hỏi -->
+    <div class="ai-block" id="block3">
+        <div class="chat-container">
+            <div class="chat-messages" id="chatBox">
+                <div class="chat-message bot">Xin chào! Tớ là trợ lý ảo của Tuấn Anh :3 Cậu có câu hỏi gì về Tuấn Anh
+                    cho tớ không?</div>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="userInput" placeholder="Đặt câu hỏi đê ..." />
+                <button onclick="sendMessage()">Gửi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="contact">
+            <h2>Liên hệ</h2>
+            <h3>Nếu bạn có bất kỳ câu hỏi nào, hãy liên hệ với tớ qua các kênh sau:</h3>
+            <ul>
+                <li>Email: <a href="mailto: anhhphamne@gmail.com">anhhphamne@gmail.com</a></li>
+                <li>Điện thoại: <a href="tel:0828825905">0828825905</a></li>
+                <li>Github: <a href="https://github.com/Anhhphamne25" target="_blank">Anhhphamne25</a></li>
+                <li>Facebook: <a href="https://www.facebook.com/anhhphamhocIT?locale=vi_VN" target="_blank">Anhh
+                        Pham</a></li>
+                <li>LinkedIn: <a href="#" target="_blank">Phạm Tuấn Anh</a></li>
+            </ul>
+        </div>
+        <p>©2025 Phạm Tuấn Anh. All rights reserved.</p>
+        <p>Trang web này được tạo ra như một phần của bài tập về nhà.</p>
+    </footer>
+
+    <script>
+        const apiKey = "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";
+
+        let knowledgeBase = [];
+
+        // Tải file JSONL chứa dữ liệu hỏi đáp
+        async function loadKnowledgeBase() {
+            try {
+                const response = await fetch('data/tuananh_data.jsonl');
+                const text = await response.text();
+                const lines = text.trim().split('\n');
+                knowledgeBase = lines.map(line => JSON.parse(line));
+            } catch (error) {
+                console.error("Lỗi khi tải knowledgeBase:", error);
+                knowledgeBase = [];
+            }
+        }
+
+        // Tính similarity đơn giản dựa trên số từ chung (để lấy các câu hỏi gần nhất)
+        function similarity(q1, q2) {
+            const words1 = q1.toLowerCase().split(/\W+/).filter(Boolean);
+            const words2 = q2.toLowerCase().split(/\W+/).filter(Boolean);
+            let common = 0;
+            for (const w of words1) {
+                if (words2.includes(w)) common++;
+            }
+            return common / Math.max(words1.length, words2.length);
+        }
+
+        // Gọi API Groq với dữ liệu tham khảo (refs) để tạo câu trả lời linh hoạt
+        async function askGroqWithRefs(question, refs) {
+            const headers = {
+                "Authorization": `Bearer ${apiKey}`,
+                "Content-Type": "application/json"
+            };
+
+            let refText = refs.map((item, i) => `${i + 1}. Q: ${item.prompt}\n   A: ${item.response}`).join('\n\n');
+
+            const systemContent = `Bạn là trợ lý ảo của Tuấn Anh,hãy phân tích các từ ngữ nhé, và luôn xưng là "tớ", trả lời thân thiện, linh hoạt, dựa trên các thông tin tham khảo dưới đây:
+
+Thông tin tham khảo:
+${refText}
+
+Hãy trả lời câu hỏi sau đây:
+${question}
+`;
+
+            const body = {
+                model: "llama3-8b-8192",
+                messages: [
+                    {
+                        role: "system",
+                        content: systemContent
+                    },
+                    {
+                        role: "user",
+                        content: question
+                    }
+                ]
+            };
+
+            try {
+                const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+                    method: "POST",
+                    headers: headers,
+                    body: JSON.stringify(body)
+                });
+
+                const data = await response.json();
+                if (data.choices && data.choices[0] && data.choices[0].message) {
+                    return data.choices[0].message.content;
+                } else {
+                    return "Xin lỗi, tớ không thể hiểu được câu trả lời từ Groq.";
+                }
+            } catch (error) {
+                console.error("Lỗi khi gọi API:", error);
+                return "Xin lỗi, tớ không thể trả lời lúc này.";
+            }
+        }
+
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const chatBox = document.getElementById('chatBox');
+            const question = userInput.value.trim();
+            if (!question) return;
+
+            // Hiển thị câu hỏi của user
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message user';
+            userMessage.textContent = question;
+            chatBox.appendChild(userMessage);
+
+            // Hiển thị trạng thái bot đang trả lời
+            const botMessage = document.createElement('div');
+            botMessage.className = 'chat-message bot';
+            botMessage.textContent = 'Đang xử lý...';
+            chatBox.appendChild(botMessage);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            userInput.value = '';
+
+            // Xử lý lời chào đơn giản
+            const greetings = ['chào', 'hi', 'hello', 'xin chào', 'yo', 'alo', 'hê lô'];
+            if (greetings.includes(question.toLowerCase())) {
+                botMessage.textContent = 'Chào bạn! Mình là trợ lý ảo của Tuấn Anh, bạn cần hỏi gì nào? 😊';
+                chatBox.scrollTop = chatBox.scrollHeight;
+                return;
+            }
+
+            // Tìm 3 câu hỏi tương tự trong knowledgeBase làm dữ liệu tham khảo
+            let scored = knowledgeBase.map(item => ({
+                item,
+                score: similarity(question, item.prompt)
+            }));
+            scored.sort((a, b) => b.score - a.score);
+
+            const topRefs = scored.filter(x => x.score > 0.1).slice(0, 3).map(x => x.item);
+
+            // Gọi API Groq với tham khảo
+            const answer = await askGroqWithRefs(question, topRefs);
+
+            botMessage.textContent = answer;
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Gửi khi nhấn Enter
+        document.getElementById('userInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        loadKnowledgeBase();
+    </script>
+</body>
+
+</html>
