@@ -9,7 +9,7 @@ body {
     width: 100%;
     background-color: #925F3B;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 2px solid black;
 }
 
 /* BLOCK ONE */
@@ -66,7 +66,8 @@ h2 {
 
 img {
     width: 25vh;
-    border-radius: 10px;
+    border-radius: 50%;
+    animation: spin_img 5s infinite linear;
 }
 
 ul {
@@ -78,6 +79,16 @@ hr {
     border: 1px solid black;
     padding: 0px;
     margin: 0px;
+}
+
+@keyframes spin_img {
+    from {
+        rotate: 0;
+    }
+
+    to {
+        rotate: 360deg;
+    }
 }
 
 /*END BLOCK ONE */
@@ -143,4 +154,34 @@ progress::-webkit-progress-value {
 .block-three {
     width: 100%;
     max-height: 40%;
+}
+
+.block-three .study li {
+    display: flex;
+}
+
+.block-three .study li i {
+    width: 20px;
+    flex-shrink: 1;
+    text-align: center;
+}
+
+.block-three .study li p {
+    flex: 1;
+    margin: 0;
+}
+
+/* End BLOCK-THREE */
+
+.return {
+    width: 120px;
+    background-color: #eee;
+    border-radius: 10px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 700px;
+    text-decoration: none;
+    color: black;
+    bottom: 10px;
 }
